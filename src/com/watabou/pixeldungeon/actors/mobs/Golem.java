@@ -24,7 +24,6 @@ import com.watabou.pixeldungeon.actors.buffs.Amok;
 import com.watabou.pixeldungeon.actors.buffs.Sleep;
 import com.watabou.pixeldungeon.actors.buffs.Terror;
 import com.watabou.pixeldungeon.actors.mobs.npcs.Imp;
-import com.watabou.pixeldungeon.items.food.MysteryMeat;
 import com.watabou.pixeldungeon.items.scrolls.ScrollOfPsionicBlast;
 import com.watabou.pixeldungeon.sprites.GolemSprite;
 import com.watabou.utils.Random;
@@ -40,9 +39,6 @@ public class Golem extends Mob {
 		
 		EXP = 12;
 		maxLvl = 22;
-		
-		foodLoot = new MysteryMeat();
-		foodLootChance = 0.1f;
 	}
 	
 	@Override

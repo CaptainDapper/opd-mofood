@@ -146,18 +146,12 @@ public class ItemSpriteSheet {
 	public static final int CRYSTAL_CHEST	= 105;
 	
 	// Food
-	public static final int RATION			= 4;
-	public static final int PASTY			= 112;
-	public static final int MEAT			= 113;
-	public static final int STEAK			= 114;
-	public static final int OVERPRICED		= 115;
-	public static final int CARPACCIO		= 116;
-	public static final int RICE			= 117;
-	public static final int FRUIT			= 118;
-	public static final int PIZZA			= 119;
-	public static final int CHIPS 			= 123;
-	public static final int CHEESEBURGER 	= 124;
-	public static final int BOWL			= 125;
+	public static final int RATION		= 4;
+	public static final int PASTY		= 112;
+	public static final int MEAT		= 113;
+	public static final int STEAK		= 114;
+	public static final int OVERPRICED	= 115;
+	public static final int CARPACCIO	= 116;
 	
 	// Bags
 	public static final int POUCH	= 83;

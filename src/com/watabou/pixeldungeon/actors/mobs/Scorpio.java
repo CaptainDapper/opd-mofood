@@ -48,9 +48,6 @@ public class Scorpio extends Mob {
 		
 		loot = new PotionOfHealing();
 		lootChance = 0.125f;
-		
-		foodLoot = new MysteryMeat();
-		foodLootChance = 0.1f;
 	}
 	
 	@Override

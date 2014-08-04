@@ -26,7 +26,6 @@ public class Pasty extends Food {
 		name = "pasty";
 		image = ItemSpriteSheet.PASTY;
 		energy = Hunger.STARVING;
-		message = "That food tasted delicious!";
 	}
 	
 	@Override

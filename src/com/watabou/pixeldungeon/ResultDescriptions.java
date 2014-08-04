@@ -39,8 +39,5 @@ public class ResultDescriptions {
 	public static final String OOZE		= "Killed by a caustic ooze on level %d";
 	public static final String FALL		= "Fell to death on level %d";
 	
-	//death by food
-	public static final String STOMACHACHE = "Died from a stomach ache on level %d";
-	
 	public static final String WIN	= "Obtained the Amulet of Yendor";
 }

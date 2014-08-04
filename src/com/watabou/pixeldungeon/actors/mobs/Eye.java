@@ -28,7 +28,6 @@ import com.watabou.pixeldungeon.actors.buffs.Terror;
 import com.watabou.pixeldungeon.effects.CellEmitter;
 import com.watabou.pixeldungeon.effects.particles.PurpleParticle;
 import com.watabou.pixeldungeon.items.Dewdrop;
-import com.watabou.pixeldungeon.items.food.MysteryMeat;
 import com.watabou.pixeldungeon.items.wands.WandOfDisintegration;
 import com.watabou.pixeldungeon.items.weapon.enchantments.Death;
 import com.watabou.pixeldungeon.items.weapon.enchantments.Leech;
@@ -58,9 +57,6 @@ public class Eye extends Mob {
 		
 		loot = new Dewdrop();
 		lootChance = 0.5f;
-		
-		foodLoot = new MysteryMeat();
-		foodLootChance = 0.1f;
 	}
 	
 	@Override

@@ -26,7 +26,6 @@ import com.watabou.pixeldungeon.ResultDescriptions;
 import com.watabou.pixeldungeon.actors.Char;
 import com.watabou.pixeldungeon.items.Generator;
 import com.watabou.pixeldungeon.items.Item;
-import com.watabou.pixeldungeon.items.food.MysteryMeat;
 import com.watabou.pixeldungeon.items.weapon.enchantments.Death;
 import com.watabou.pixeldungeon.levels.Level;
 import com.watabou.pixeldungeon.sprites.SkeletonSprite;
@@ -47,9 +46,6 @@ public class Skeleton extends Mob {
 		
 		EXP = 5;
 		maxLvl = 10;
-		
-		foodLoot = new MysteryMeat();
-		foodLootChance = 0.3f;
 	}
 	
 	@Override

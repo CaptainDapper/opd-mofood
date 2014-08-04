@@ -25,7 +25,6 @@ import com.watabou.pixeldungeon.actors.Char;
 import com.watabou.pixeldungeon.actors.buffs.Buff;
 import com.watabou.pixeldungeon.actors.buffs.Weakness;
 import com.watabou.pixeldungeon.items.Generator;
-import com.watabou.pixeldungeon.items.food.MysteryMeat;
 import com.watabou.pixeldungeon.items.weapon.enchantments.Death;
 import com.watabou.pixeldungeon.levels.Level;
 import com.watabou.pixeldungeon.mechanics.Ballistica;
@@ -54,9 +53,6 @@ public class Warlock extends Mob implements Callback {
 		
 		loot = Generator.Category.POTION;
 		lootChance = 0.83f;
-		
-		foodLoot = new MysteryMeat();
-		foodLootChance = 0.1f;
 	}
 	
 	@Override

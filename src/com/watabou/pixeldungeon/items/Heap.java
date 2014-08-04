@@ -187,7 +187,7 @@ public class Heap implements Bundlable {
 			} else if (item instanceof MysteryMeat) {
 				replace( item, ChargrilledMeat.cook( (MysteryMeat)item ) );
 				burnt = true;
-				}
+			}
 		}
 		
 		if (burnt || evaporated) {
@@ -205,8 +205,8 @@ public class Heap implements Bundlable {
 			} else if (sprite != null) {
 				sprite.view( image(), glowing() );
 			}
+			
 		}
-
 	}
 	
 	public void freeze() {
