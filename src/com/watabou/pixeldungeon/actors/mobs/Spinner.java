@@ -44,7 +44,9 @@ public class Spinner extends Mob {
 		maxLvl = 16;
 		
 		loot = new MysteryMeat();
-		lootChance = 0.125f;
+		lootChance = 0.2f;
+		
+		
 	}
 	
 	@Override

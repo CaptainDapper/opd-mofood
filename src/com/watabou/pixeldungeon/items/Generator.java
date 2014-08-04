@@ -24,9 +24,14 @@ import com.watabou.pixeldungeon.actors.hero.Hero;
 import com.watabou.pixeldungeon.actors.mobs.npcs.Wandmaker.Rotberry;
 import com.watabou.pixeldungeon.items.armor.*;
 import com.watabou.pixeldungeon.items.bags.Bag;
+import com.watabou.pixeldungeon.items.food.Cheeseburger;
+import com.watabou.pixeldungeon.items.food.Chips;
 import com.watabou.pixeldungeon.items.food.Food;
+import com.watabou.pixeldungeon.items.food.Fruit;
 import com.watabou.pixeldungeon.items.food.MysteryMeat;
 import com.watabou.pixeldungeon.items.food.Pasty;
+import com.watabou.pixeldungeon.items.food.Pizza;
+import com.watabou.pixeldungeon.items.food.Rice;
 import com.watabou.pixeldungeon.items.potions.*;
 import com.watabou.pixeldungeon.items.rings.*;
 import com.watabou.pixeldungeon.items.scrolls.*;
@@ -108,7 +113,7 @@ public class Generator {
 			PotionOfInvisibility.class,
 			PotionOfMight.class,
 			PotionOfFrost.class };
-		Category.POTION.probs = new float[]{ 45, 4, 15, 10, 15, 10, 0, 20, 12, 10, 0, 10 };
+		Category.POTION.probs = new float[]{ 45, 4, 15, 10, 20, 10, 0, 20, 12, 10, 0, 10 };
 		
 		Category.WAND.classes = new Class<?>[]{ 
 			WandOfTeleportation.class, 
@@ -156,10 +161,15 @@ public class Generator {
 		Category.ARMOR.probs = new float[]{ 1, 1, 1, 1, 1 };
 		
 		Category.FOOD.classes = new Class<?>[]{ 
-			Food.class, 
+			Food.class, //medium value is 4
+			Fruit.class, //low value is 3
+			Pizza.class,
+			Cheeseburger.class, //high value is 4
+			Chips.class,
+			Rice.class,
 			Pasty.class,
-			MysteryMeat.class };
-		Category.FOOD.probs = new float[]{ 4, 1, 0 };
+			MysteryMeat.class, };
+		Category.FOOD.probs = new float[]{ 3, 2, 3, 1, 2, 2, 1, 0 };
 			
 		Category.RING.classes = new Class<?>[]{ 
 			RingOfMending.class,
@@ -185,7 +195,7 @@ public class Generator {
 			Earthroot.Seed.class,
 			Fadeleaf.Seed.class,
 			Rotberry.Seed.class };
-		Category.SEED.probs = new float[]{ 1, 1, 1, 1, 1, 1, 1, 0 };
+		Category.SEED.probs = new float[]{ 3, 2, 2, 2, 2, 2, 2, 0 };
 	}
 	
 	public static void reset() {

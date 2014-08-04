@@ -18,24 +18,34 @@
 package com.watabou.pixeldungeon.items.food;
 
 import com.watabou.pixeldungeon.actors.buffs.Hunger;
+import com.watabou.pixeldungeon.actors.hero.Hero;
+import com.watabou.pixeldungeon.items.Bowl;
 import com.watabou.pixeldungeon.sprites.ItemSpriteSheet;
+import com.watabou.pixeldungeon.utils.GLog;
 
-public class Pasty extends Food {
+public class Rice extends Food {
 
 	{
-		name = "pasty";
-		image = ItemSpriteSheet.PASTY;
-		energy = Hunger.STARVING;
-		message = "That food tasted delicious!";
+		name = "bowl of rice";
+		image = ItemSpriteSheet.RICE;
+		energy = Hunger.STARVING - Hunger.HUNGRY;
+		message = "That food tasted ok.";
+	}
+	
+	@Override
+	public void execute( Hero hero, String action ) {
+		super.execute(hero, action);
+		new Bowl().collect();
+		GLog.i("You now have bowl.");
 	}
 	
 	@Override
 	public String info() {
-		return "This is authentic Cornish pasty with traditional filling of beef and potato.";
+		return "This bowl of rice is bland and uninteresting. ";
 	}
 	
 	@Override
 	public int price() {
-		return 20 * quantity;
+		return 10 * quantity;
 	}
 }

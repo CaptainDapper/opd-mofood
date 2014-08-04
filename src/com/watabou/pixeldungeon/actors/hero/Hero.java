@@ -1001,7 +1001,7 @@ public class Hero extends Char {
 				sprite.emitter().burst( Speck.factory( Speck.HEALING ), 1 );
 			}
 			
-			((Hunger)buff( Hunger.class )).satisfy( 10 );
+			((Hunger)buff( Hunger.class )).satisfy( 1 );
 		}
 	}
 	

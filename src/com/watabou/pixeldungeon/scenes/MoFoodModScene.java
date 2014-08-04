@@ -18,27 +18,30 @@
 package com.watabou.pixeldungeon.scenes;
 
 import com.watabou.noosa.Game;
-import com.watabou.pixeldungeon.windows.WndStory;
+import com.watabou.pixeldungeon.ui.Icons;
+import com.watabou.pixeldungeon.windows.WndTitledMessage;
 
-public class IntroScene extends PixelScene {
+public class MoFoodModScene extends PixelScene {
 
 	private static final String TEXT = 	
-		"Many heroes of all kinds ventured into the Dungeon before you. Some of them have returned with treasures and magical " +
-		"artifacts, most have never been heard of since. But none have succeeded in retrieving the Amulet of Yendor, " +
-		"which is told to be hidden in the depths of the Dungeon.\n\n" +
-		"" +
-		"You consider yourself ready for the challenge, but most importantly, you feel that fortune smiles on you. " +
-		"It's time to start your own adventure!";
+		"Welcome to the Mo' Food Mod for Pixel Dungeon! \n\n" +
+		"This mod includes many changes related to food in the game. There are new foods, " +
+		"more food spawns, almost all monsters drop mystery meat, starving is buffed, and more.Ê\n\n" +
+		"For more information and a full list of changes, view the README on Github. \n\n" +
+		"Thank you for playing the Mo' Food Mod, and I hope you enjoy playing it as much as I did " +
+		"making it. \n\n" +
+		"-roastedlasagna";
+	private static final String TITLE = "Mo' Food Mod";
 	
 	@Override
 	public void create() {
 		super.create();
 		
-		add( new WndStory( TEXT ) {
+		add( new WndTitledMessage( Icons.INFO.get(), TITLE, TEXT ) {
 			@Override
 			public void hide() {
 				super.hide();
-				Game.switchScene( MoFoodModScene.class );
+				Game.switchScene( InterlevelScene.class );
 			}
 		} );
 		
