@@ -439,6 +439,8 @@ public abstract class Mob extends Char {
 		
 		super.die( cause );
 		
+		dropFoodLoot();
+		
 		if (Dungeon.hero.lvl <= maxLvl + 2) {
 			dropLoot();
 		}
@@ -450,6 +452,9 @@ public abstract class Mob extends Char {
 	
 	protected Object loot = null;
 	protected float lootChance = 0;
+	
+	protected Object foodLoot = null;
+	protected float foodLootChance = 0;
 	
 	@SuppressWarnings("unchecked")
 	protected void dropLoot() {
@@ -470,6 +475,28 @@ public abstract class Mob extends Char {
 			}
 			Dungeon.level.drop( item, pos ).sprite.drop();
 		}
+	}
+	
+	@SuppressWarnings("unchecked")
+	protected void dropFoodLoot() {
+		if (foodLoot != null && Random.Float() < foodLootChance) {
+			Item item = null;
+			if (foodLoot instanceof Generator.Category) {
+				
+				item = Generator.random( (Generator.Category)foodLoot );
+				
+			} else if (foodLoot instanceof Class<?>) {
+				
+				item = Generator.random( (Class<? extends Item>)foodLoot );
+				
+			} else {
+				
+				item = (Item)foodLoot;
+								
+			}
+			Dungeon.level.drop( item , pos ).sprite.drop();
+		}
+
 	}
 	
 	public boolean reset() {

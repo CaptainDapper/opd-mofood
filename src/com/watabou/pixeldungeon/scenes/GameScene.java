@@ -276,6 +276,7 @@ public class GameScene extends PixelScene {
 			switch (Dungeon.depth) {
 			case 1:
 				WndStory.showChapter( WndStory.ID_SEWERS );
+				GLog.h( "Mo' Food Mod startup successful. Welcome!" );
 				break;
 			case 6:
 				WndStory.showChapter( WndStory.ID_PRISON );

@@ -28,6 +28,7 @@ import com.watabou.pixeldungeon.actors.buffs.Charm;
 import com.watabou.pixeldungeon.actors.buffs.Light;
 import com.watabou.pixeldungeon.actors.buffs.Sleep;
 import com.watabou.pixeldungeon.effects.Speck;
+import com.watabou.pixeldungeon.items.food.MysteryMeat;
 import com.watabou.pixeldungeon.items.scrolls.ScrollOfLullaby;
 import com.watabou.pixeldungeon.items.wands.WandOfBlink;
 import com.watabou.pixeldungeon.items.weapon.enchantments.Leech;
@@ -55,6 +56,9 @@ public class Succubus extends Mob {
 		
 		loot = new ScrollOfLullaby();
 		lootChance = 0.05f;
+		
+		foodLoot = new MysteryMeat();
+		foodLootChance = 0.1f;
 	}
 	
 	@Override

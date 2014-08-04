@@ -17,6 +17,8 @@
  */
 package com.watabou.pixeldungeon.items.food;
 
+import com.watabou.pixeldungeon.Dungeon;
+import com.watabou.pixeldungeon.ResultDescriptions;
 import com.watabou.pixeldungeon.actors.buffs.Buff;
 import com.watabou.pixeldungeon.actors.buffs.Burning;
 import com.watabou.pixeldungeon.actors.buffs.Hunger;
@@ -26,7 +28,9 @@ import com.watabou.pixeldungeon.actors.buffs.Roots;
 import com.watabou.pixeldungeon.actors.buffs.Slow;
 import com.watabou.pixeldungeon.actors.hero.Hero;
 import com.watabou.pixeldungeon.sprites.ItemSpriteSheet;
+import com.watabou.pixeldungeon.ui.BuffIndicator;
 import com.watabou.pixeldungeon.utils.GLog;
+import com.watabou.pixeldungeon.utils.Utils;
 import com.watabou.utils.Random;
 
 public class MysteryMeat extends Food {
@@ -40,12 +44,39 @@ public class MysteryMeat extends Food {
 	
 	@Override
 	public void execute( Hero hero, String action ) {
-		
+		int damage = 2;
+		if (Dungeon.depth <=5) {
+			damage = 2;
+		} else if (Dungeon.depth <= 10){
+			damage = 4;
+		} else if (Dungeon.depth <= 15) {
+			damage = 6;
+		} else if (Dungeon.depth <= 20) {
+			damage = 8;
+		} else if (Dungeon.depth <= 25) {
+			damage = 10;
+		} else {
+			damage = 10;
+		}
 		super.execute( hero, action );
 		
 		if (action.equals( AC_EAT )) {
 			
-			switch (Random.Int( 5 )) {
+			int theswitch = Random.Int(9);
+			
+			if ( theswitch == 5 ){
+				theswitch = 1;
+			} else if ( theswitch == 6 ){
+				theswitch = 3;
+			} else if ( theswitch == 7 ){
+				theswitch = 4;
+			} else if ( theswitch == 8 ){
+				theswitch = 5;
+			} else if ( theswitch == 9 ){
+				theswitch = 5;
+			}
+			
+			switch ( theswitch ) {
 			case 0:
 				GLog.w( "Oh it's hot!" );
 				Buff.affect( hero, Burning.class ).reignite( hero );
@@ -61,6 +92,23 @@ public class MysteryMeat extends Food {
 			case 3:
 				GLog.w( "You are stuffed." );
 				Buff.prolong( hero, Slow.class, Slow.duration( hero ) );
+				break;
+			case 4:
+				GLog.w("You have a stomach ache!");
+				hero.damage ( damage , this );
+				
+				if (!hero.isAlive()) {
+					Dungeon.fail( Utils.format( ResultDescriptions.STOMACHACHE, Dungeon.depth ) );
+					GLog.n( "Your stomach ache killed you..." );
+				}
+				break;
+			case 5:
+				GLog.w("You eat the mystery meat, but it doesn't improve your hunger.");
+				Hunger hunger = hero.buff( Hunger.class );
+				if (hunger != null && !hunger.isStarving()) {
+					hunger.satisfy( -(Hunger.STARVING-Hunger.HUNGRY) );
+					BuffIndicator.refreshHero();
+				}
 				break;
 			}
 		}

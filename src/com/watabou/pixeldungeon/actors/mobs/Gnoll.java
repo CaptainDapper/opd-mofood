@@ -20,8 +20,11 @@ package com.watabou.pixeldungeon.actors.mobs;
 import com.watabou.pixeldungeon.actors.Char;
 import com.watabou.pixeldungeon.actors.mobs.npcs.Ghost;
 import com.watabou.pixeldungeon.items.Gold;
+import com.watabou.pixeldungeon.items.food.MysteryMeat;
 import com.watabou.pixeldungeon.sprites.GnollSprite;
 import com.watabou.utils.Random;
+
+
 
 public class Gnoll extends Mob {
 	
@@ -36,7 +39,10 @@ public class Gnoll extends Mob {
 		maxLvl = 8;
 		
 		loot = Gold.class;
-		lootChance = 0.5f;
+		lootChance = 1f;
+		
+		foodLoot = new MysteryMeat();
+		foodLootChance = 0.4f;
 	}
 	
 	@Override
@@ -56,8 +62,10 @@ public class Gnoll extends Mob {
 	
 	@Override
 	public void die( Object cause ) {
+
 		Ghost.Quest.process( pos );
 		super.die( cause );
+
 	}
 	
 	@Override

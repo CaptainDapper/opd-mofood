@@ -20,22 +20,22 @@ package com.watabou.pixeldungeon.items.food;
 import com.watabou.pixeldungeon.actors.buffs.Hunger;
 import com.watabou.pixeldungeon.sprites.ItemSpriteSheet;
 
-public class Pasty extends Food {
+public class Cheeseburger extends Food {
 
 	{
-		name = "pasty";
-		image = ItemSpriteSheet.PASTY;
+		name = "cheeseburger";
+		image = ItemSpriteSheet.CHEESEBURGER;
 		energy = Hunger.STARVING;
-		message = "That food tasted delicious!";
+		message = "That food was delicious!";
 	}
 	
 	@Override
 	public String info() {
-		return "This is authentic Cornish pasty with traditional filling of beef and potato.";
+		return "This hearty burger has cheese, lettuce and tomatoes.";
 	}
 	
 	@Override
 	public int price() {
-		return 20 * quantity;
+		return 10 * quantity;
 	}
 }

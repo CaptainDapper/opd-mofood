@@ -25,6 +25,7 @@ import com.watabou.pixeldungeon.ResultDescriptions;
 import com.watabou.pixeldungeon.actors.Char;
 import com.watabou.pixeldungeon.effects.particles.SparkParticle;
 import com.watabou.pixeldungeon.items.Generator;
+import com.watabou.pixeldungeon.items.food.MysteryMeat;
 import com.watabou.pixeldungeon.levels.Level;
 import com.watabou.pixeldungeon.levels.traps.LightningTrap;
 import com.watabou.pixeldungeon.mechanics.Ballistica;
@@ -53,6 +54,9 @@ public class Shaman extends Mob implements Callback {
 		
 		loot = Generator.Category.SCROLL;
 		lootChance = 0.33f;
+		
+		foodLoot = new MysteryMeat();
+		foodLootChance = 0.3f;
 	}
 	
 	@Override

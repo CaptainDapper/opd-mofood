@@ -19,6 +19,7 @@ package com.watabou.pixeldungeon.actors.mobs;
 
 import com.watabou.pixeldungeon.actors.Char;
 import com.watabou.pixeldungeon.actors.mobs.npcs.Ghost;
+import com.watabou.pixeldungeon.items.food.MysteryMeat;
 import com.watabou.pixeldungeon.sprites.RatSprite;
 import com.watabou.utils.Random;
 
@@ -32,6 +33,9 @@ public class Rat extends Mob {
 		defenseSkill = 3;
 		
 		maxLvl = 5;
+		
+		foodLoot = new MysteryMeat();
+		foodLootChance = 0.4f;
 	}
 	
 	@Override
@@ -52,8 +56,9 @@ public class Rat extends Mob {
 	@Override
 	public void die( Object cause ) {
 		Ghost.Quest.process( pos );
-		
 		super.die( cause );
+		
+
 	}
 	
 	@Override

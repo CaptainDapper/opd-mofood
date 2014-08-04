@@ -26,6 +26,7 @@ public class ChargrilledMeat extends Food {
 		name = "chargrilled meat";
 		image = ItemSpriteSheet.STEAK;
 		energy = Hunger.STARVING - Hunger.HUNGRY;
+		message = "That food tasted ok.";
 	}
 	
 	@Override

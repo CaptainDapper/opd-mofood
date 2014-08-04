@@ -23,6 +23,7 @@ import com.watabou.pixeldungeon.actors.buffs.Terror;
 import com.watabou.pixeldungeon.actors.hero.Hero;
 import com.watabou.pixeldungeon.items.Gold;
 import com.watabou.pixeldungeon.items.Item;
+import com.watabou.pixeldungeon.items.food.MysteryMeat;
 import com.watabou.pixeldungeon.items.rings.RingOfHaggler;
 import com.watabou.pixeldungeon.sprites.CharSprite;
 import com.watabou.pixeldungeon.sprites.ThiefSprite;
@@ -50,6 +51,9 @@ public class Thief extends Mob {
 		
 		loot = RingOfHaggler.class;
 		lootChance = 0.01f;
+		
+		foodLoot = new MysteryMeat();
+		foodLootChance = 0.3f;
 	}
 	
 	private static final String ITEM = "item";

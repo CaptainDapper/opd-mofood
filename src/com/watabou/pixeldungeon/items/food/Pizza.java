@@ -20,22 +20,21 @@ package com.watabou.pixeldungeon.items.food;
 import com.watabou.pixeldungeon.actors.buffs.Hunger;
 import com.watabou.pixeldungeon.sprites.ItemSpriteSheet;
 
-public class Pasty extends Food {
+public class Pizza extends Food {
 
 	{
-		name = "pasty";
-		image = ItemSpriteSheet.PASTY;
-		energy = Hunger.STARVING;
-		message = "That food tasted delicious!";
+		name = "pizza";
+		image = ItemSpriteSheet.PIZZA;
+		energy = Hunger.HUNGRY;
 	}
 	
 	@Override
 	public String info() {
-		return "This is authentic Cornish pasty with traditional filling of beef and potato.";
+		return "This slice of cheese pizza is still hot, despite being in the dungeon for a long time.";
 	}
 	
 	@Override
 	public int price() {
-		return 20 * quantity;
+		return 10 * quantity;
 	}
 }

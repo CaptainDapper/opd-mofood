@@ -15,27 +15,36 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>
  */
-package com.watabou.pixeldungeon.items.food;
+package com.watabou.pixeldungeon.items;
 
-import com.watabou.pixeldungeon.actors.buffs.Hunger;
 import com.watabou.pixeldungeon.sprites.ItemSpriteSheet;
 
-public class Pasty extends Food {
+public class Bowl extends Item {
 
 	{
-		name = "pasty";
-		image = ItemSpriteSheet.PASTY;
-		energy = Hunger.STARVING;
-		message = "That food tasted delicious!";
+		stackable = true;
+		name = "bowl";
+		image = ItemSpriteSheet.BOWL;
+	}
+	
+	@Override
+	public boolean isUpgradable() {
+		return false;
+	}
+	
+	@Override
+	public boolean isIdentified() {
+		return true;
 	}
 	
 	@Override
 	public String info() {
-		return "This is authentic Cornish pasty with traditional filling of beef and potato.";
+		return 
+			"This bowl once held food in it, but now it is empty.";
 	}
 	
 	@Override
 	public int price() {
-		return 20 * quantity;
+		return 5 * quantity;
 	}
 }
