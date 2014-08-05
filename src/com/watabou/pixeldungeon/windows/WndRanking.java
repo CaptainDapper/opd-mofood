@@ -141,7 +141,7 @@ public class WndRanking extends WndTabbed {
 		
 		private static final int GAP	= 4;
 		
-		private static final String TXT_TITLE		= "(Mo' Food) Level %d %s";
+		private static final String TXT_TITLE		= "Level %d %s";
 		
 		private static final String TXT_HEALTH	= "Health";
 		private static final String TXT_STR		= "Strength";
@@ -156,6 +156,9 @@ public class WndRanking extends WndTabbed {
 		private static final String TXT_ALCHEMY	= "Potions Cooked";
 		private static final String TXT_ANKHS	= "Ankhs Used";
 		
+		private static final String TXT_MOFOOD	= "Mo' Food Mod Enabled";
+
+		
 		public StatsTab() {
 			super();
 			
@@ -168,6 +171,10 @@ public class WndRanking extends WndTabbed {
 			add( title );
 			
 			float pos = title.bottom() + GAP + GAP;
+			
+			pos = statSlot( this, TXT_MOFOOD, "Yes", pos );
+			
+			pos += GAP;
 			
 			pos = statSlot( this, TXT_STR, Integer.toString( Dungeon.hero.STR ), pos );
 			pos = statSlot( this, TXT_HEALTH, Integer.toString( Dungeon.hero.HT ), pos );
@@ -187,6 +194,7 @@ public class WndRanking extends WndTabbed {
 			pos = statSlot( this, TXT_FOOD, Integer.toString( Statistics.foodEaten ), pos );
 			pos = statSlot( this, TXT_ALCHEMY, Integer.toString( Statistics.potionsCooked ), pos );
 			pos = statSlot( this, TXT_ANKHS, Integer.toString( Statistics.ankhsUsed ), pos );
+			
 		}
 		
 		private float statSlot( Group parent, String label, String value, float pos ) {
