@@ -101,14 +101,14 @@ public class TitleScene extends PixelScene {
 		btnHighscores.setPos( w / 2, btnPlay.top() );
 		add( btnHighscores );
 		
-		BitmapText version = new BitmapText( "Pixel Dungeon v " + Game.version, font1x );
+		BitmapText version = new BitmapText( "Pixel Dungeon v1.7.1c", font1x );
 		version.measure();
 		version.hardlight( 0x888888 );
 		version.x = w - version.width();
 		version.y = h - 2 * version.height();
 		add( version );
 		
-		BitmapText MoFoodVersion = new BitmapText( "Mo' Food Mod v1.0.4", font1x );
+		BitmapText MoFoodVersion = new BitmapText( "Mo' Food Mod " + Game.version, font1x );
 		MoFoodVersion.measure();
 		MoFoodVersion.hardlight( 0x888888 );
 		MoFoodVersion.x = w - MoFoodVersion.width();

@@ -18,7 +18,7 @@ https://github.com/watabou/PD-classes
 
 
 
-Mo' Food Mod v1.0 by roastedlasagna
+Mo' Food Mod v1.0.5 by roastedlasagna
 =======================================
 
 This mod changes how hunger and food works in the game.
@@ -39,6 +39,6 @@ List of changes:
 
 This mod makes the game much harder, especially in the beginning. You have been warned.
 
-Warning! Installing the mod may overwrite any currently saved Pixel Dungeon files. 
-Trying to remove the mod may have the same effect.
-Do not install the mod if you are worried about losing save files.
+This mod should install as a separate application and will not hurt any of your current
+Pixel Dungeon save files. (That said, if something happens to your save files as a result
+of download this app I am not responsible)
