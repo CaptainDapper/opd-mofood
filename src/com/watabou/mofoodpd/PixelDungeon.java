@@ -51,10 +51,9 @@ public class PixelDungeon extends Game {
 		com.watabou.utils.Bundle.addAlias(
 				com.watabou.mofoodpd.actors.buffs.Shadows.class,
 				"com.watabou.pixeldungeon.actors.buffs.Rejuvenation");
-		com.watabou.utils.Bundle
-				.addAlias(
-						com.watabou.mofoodpd.items.scrolls.ScrollOfPsionicBlast.class,
-						"com.watabou.pixeldungeon.items.scrolls.ScrollOfNuclearBlast");
+		com.watabou.utils.Bundle.addAlias(
+				com.watabou.mofoodpd.items.scrolls.ScrollOfPsionicBlast.class,
+				"com.watabou.pixeldungeon.items.scrolls.ScrollOfNuclearBlast");
 		com.watabou.utils.Bundle.addAlias(
 				com.watabou.mofoodpd.actors.hero.Hero.class,
 				"com.watabou.pixeldungeon.actors.Hero");

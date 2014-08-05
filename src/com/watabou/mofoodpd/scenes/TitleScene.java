@@ -108,7 +108,7 @@ public class TitleScene extends PixelScene {
 		version.y = h - 2 * version.height();
 		add( version );
 		
-		BitmapText MoFoodVersion = new BitmapText( "Mo' Food Mod v1.0.2", font1x );
+		BitmapText MoFoodVersion = new BitmapText( "Mo' Food Mod v1.0.4", font1x );
 		MoFoodVersion.measure();
 		MoFoodVersion.hardlight( 0x888888 );
 		MoFoodVersion.x = w - MoFoodVersion.width();
