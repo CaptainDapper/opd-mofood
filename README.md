@@ -18,7 +18,7 @@ https://github.com/watabou/PD-classes
 
 
 
-Mo' Food Mod v1.0.5 by roastedlasagna
+Mo' Food Mod by roastedlasagna
 =======================================
 
 This mod changes how hunger and food works in the game.

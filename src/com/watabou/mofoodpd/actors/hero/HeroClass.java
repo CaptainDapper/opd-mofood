@@ -49,13 +49,11 @@ public enum HeroClass {
 			"Warriors start with 11 points of Strength.",
 			"Warriors start with a unique short sword. This sword can be later \"reforged\" to upgrade another melee weapon.",
 			"Warriors are less proficient with missile weapons.",
-			"Any piece of food restores some health when eaten.",
 			"Potions of Strength are identified from the beginning.", };
 
 	public static final String[] MAG_PERKS = {
 			"Mages start with a unique Wand of Magic Missile. This wand can be later \"disenchanted\" to upgrade another wand.",
 			"Mages recharge their wands faster.",
-			"When eaten, any piece of food restores 1 charge for all wands in the inventory.",
 			"Mages can use wands as a melee weapon.",
 			"Scrolls of Identify are identified from the beginning." };
 
