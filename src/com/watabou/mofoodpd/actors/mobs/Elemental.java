@@ -24,7 +24,7 @@ import com.watabou.mofoodpd.actors.buffs.Buff;
 import com.watabou.mofoodpd.actors.buffs.Burning;
 import com.watabou.mofoodpd.actors.buffs.Frost;
 import com.watabou.mofoodpd.effects.Speck;
-import com.watabou.mofoodpd.items.food.MysteryMeat;
+import com.watabou.mofoodpd.items.food.ChargrilledMeat;
 import com.watabou.mofoodpd.items.potions.PotionOfLiquidFlame;
 import com.watabou.mofoodpd.items.scrolls.ScrollOfPsionicBlast;
 import com.watabou.mofoodpd.items.wands.WandOfFirebolt;
@@ -49,7 +49,7 @@ public class Elemental extends Mob {
 		loot = new PotionOfLiquidFlame();
 		lootChance = 0.1f;
 		
-		foodLoot = new MysteryMeat();
+		foodLoot = new ChargrilledMeat();
 		foodLootChance = 0.1f;
 	}
 	

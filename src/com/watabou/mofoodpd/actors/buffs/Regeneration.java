@@ -17,6 +17,7 @@
  */
 package com.watabou.mofoodpd.actors.buffs;
 
+import com.watabou.mofoodpd.Dungeon;
 import com.watabou.mofoodpd.actors.hero.Hero;
 import com.watabou.mofoodpd.items.rings.RingOfMending;
 
@@ -28,6 +29,18 @@ public class Regeneration extends Buff {
 	public boolean act() {
 		if (target.isAlive()) {
 			
+			float newRegeneration;
+			
+			if (Dungeon.difficulty == 1){
+				newRegeneration = REGENERATION_DELAY - 2;
+			} else if (Dungeon.difficulty == 2){
+				newRegeneration = REGENERATION_DELAY - 1;
+			} else if (Dungeon.difficulty == 3){
+				newRegeneration = REGENERATION_DELAY;
+			} else {
+				newRegeneration = REGENERATION_DELAY + 1;
+			}
+
 			if (target.HP < target.HT && !((Hero)target).isStarving()) {
 				target.HP += 1;
 			}
@@ -37,7 +50,7 @@ public class Regeneration extends Buff {
 				bonus += ((RingOfMending.Rejuvenation)buff).level;
 			}
 			
-			spend( (float)(REGENERATION_DELAY / Math.pow( 1.2, bonus )) );
+			spend( (float)(newRegeneration / Math.pow( 1.2, bonus )) );
 			
 		} else {
 			

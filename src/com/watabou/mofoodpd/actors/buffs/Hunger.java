@@ -31,11 +31,11 @@ import com.watabou.utils.Random;
 
 public class Hunger extends Buff implements Hero.Doom {
 
-	private static final float STEP = 3f;
-
 	public static final float HUNGRY = 70f;
 	public static final float STARVING = 100f;
+	public static final float STEP = 2f;
 
+		
 	private static final String TXT_HUNGRY = "You are hungry.";
 	private static final String TXT_STARVING = "You are starving!";
 	private static final String TXT_DEATH = "You starved to death...";
@@ -68,10 +68,30 @@ public class Hunger extends Buff implements Hero.Doom {
 						&& (target.HP > 1 || !target.paralysed)) {
 
 					int StarvingDamage = ((5 + (Dungeon.depth)) / 5);
-
-					GLog.n(TXT_STARVING);
-					hero.damage(StarvingDamage, this);
-
+					if (Dungeon.difficulty == 1){
+						StarvingDamage = 1;
+					} else if (Dungeon.difficulty == 2){
+						StarvingDamage = 1;
+					} else if (Dungeon.difficulty == 3){
+						//no change;
+					} else {
+						StarvingDamage++;
+					}
+					
+					if (Dungeon.difficulty == 1) {
+						if (Random.Float() < 0.15f){
+							//no starvation
+						} else {
+							//starvation
+							GLog.n(TXT_STARVING);
+							hero.damage(StarvingDamage, this);
+						}
+					} else {
+						//not on easy - starve
+						GLog.n(TXT_STARVING);
+						hero.damage(StarvingDamage, this);
+					}
+					
 					// gets health as percentage, only interrupts when < 25%
 					float health = (float) Dungeon.hero.HP / Dungeon.hero.HT;
 

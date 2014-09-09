@@ -53,7 +53,7 @@ public class Statistics {
 		qualifiedForNoKilling = false;
 
 		amuletObtained = false;
-
+		
 	}
 
 	private static final String GOLD = "score";

@@ -55,6 +55,7 @@ public enum Rankings {
 		rec.heroClass = Dungeon.hero.heroClass;
 		rec.armorTier = Dungeon.hero.tier();
 		rec.score = score(win);
+		rec.difficulty = Dungeon.difficulty;
 
 		String gameFile = Utils.format(DETAILS_FILE, SystemTime.now);
 		try {
@@ -151,6 +152,9 @@ public enum Rankings {
 		private static final String SCORE = "score";
 		private static final String TIER = "tier";
 		private static final String GAME = "gameFile";
+		private static final String DIFFICULTY = "difficulty";
+		
+		public int difficulty;
 
 		public String info;
 		public boolean win;
@@ -171,6 +175,8 @@ public enum Rankings {
 
 			heroClass = HeroClass.restoreInBundle(bundle);
 			armorTier = bundle.getInt(TIER);
+			
+			difficulty = bundle.getInt(DIFFICULTY);
 
 			gameFile = bundle.getString(GAME);
 		}
@@ -181,6 +187,7 @@ public enum Rankings {
 			bundle.put(REASON, info);
 			bundle.put(WIN, win);
 			bundle.put(SCORE, score);
+			bundle.put(DIFFICULTY, difficulty);
 
 			heroClass.storeInBundle(bundle);
 			bundle.put(TIER, armorTier);

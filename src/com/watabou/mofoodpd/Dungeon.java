@@ -114,6 +114,8 @@ public class Dungeon {
 
 	public static Hero hero;
 	public static Level level;
+	
+	public static int difficulty = 2;
 
 	// Eitherî Item or Class<? extends Item>
 	public static Object quickslot;
@@ -129,6 +131,8 @@ public class Dungeon {
 	public static boolean[] visible = new boolean[Level.LENGTH];
 
 	public static boolean nightMode;
+	public static boolean manualNightMode;
+	public static boolean manualNightChoice;
 
 	public static void init() {
 
@@ -146,6 +150,10 @@ public class Dungeon {
 
 		depth = 0;
 		gold = 0;
+		difficulty = StartScene.difficulty;
+		
+		manualNightMode = StartScene.manualNightMode;
+		manualNightChoice = StartScene.nightModeChoice;
 
 		potionOfStrength = 0;
 		scrollsOfUpgrade = 0;
@@ -166,7 +174,7 @@ public class Dungeon {
 		hero.live();
 
 		Badges.reset();
-
+		
 		StartScene.curClass.initHero(hero);
 	}
 
@@ -297,6 +305,14 @@ public class Dungeon {
 	public static void switchLevel(final Level level, int pos) {
 
 		nightMode = new Date().getHours() < 7;
+		
+		if (manualNightMode == true){
+			if (manualNightChoice == true){
+				nightMode = true;
+			} else {
+				nightMode = false;
+			}
+		}
 
 		Dungeon.level = level;
 		Actor.init();
@@ -369,6 +385,7 @@ public class Dungeon {
 	private static final String CHAPTERS = "chapters";
 	private static final String QUESTS = "quests";
 	private static final String BADGES = "badges";
+	private static final String DIFFICULTY = "difficulty";
 
 	public static String gameFile(HeroClass cl) {
 		switch (cl) {
@@ -410,6 +427,8 @@ public class Dungeon {
 			bundle.put(AS, arcaneStyli);
 			bundle.put(DV, dewVial);
 			bundle.put(WT, transmutation);
+			
+			bundle.put(DIFFICULTY, difficulty);
 
 			int count = 0;
 			int ids[] = new int[chapters.size()];
@@ -514,6 +533,7 @@ public class Dungeon {
 		arcaneStyli = bundle.getInt(AS);
 		dewVial = bundle.getBoolean(DV);
 		transmutation = bundle.getInt(WT);
+		difficulty = bundle.getInt(DIFFICULTY);
 
 		if (fullLoad) {
 			chapters = new HashSet<Integer>();
@@ -692,5 +712,23 @@ public class Dungeon {
 		return PathFinder.getStepBack(cur, from, passable);
 
 	}
+	
+	public static String diffToString(int diff){
+		String diffAsString;
+		
+		if (diff == 0){
+			diffAsString = "Error";
+		} else if (diff == 1){
+			diffAsString = "Easy";
+		} else if (diff == 2){
+			diffAsString = "Normal";
+		} else if (diff == 3){
+			diffAsString = "Hard";
+		} else {
+			diffAsString = "Insane";
+		}
+		return diffAsString;
+	}
 
 }
+

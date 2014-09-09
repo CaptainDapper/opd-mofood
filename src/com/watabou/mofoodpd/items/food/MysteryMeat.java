@@ -46,17 +46,17 @@ public class MysteryMeat extends Food {
 	public void execute( Hero hero, String action ) {
 		int damage = 2;
 		if (Dungeon.depth <=5) {
-			damage = 2;
+			damage = 2 + (Dungeon.difficulty - 1);
 		} else if (Dungeon.depth <= 10){
-			damage = 4;
+			damage = 4 + (Dungeon.difficulty - 1);
 		} else if (Dungeon.depth <= 15) {
-			damage = 6;
+			damage = 6 + (Dungeon.difficulty - 1);
 		} else if (Dungeon.depth <= 20) {
-			damage = 8;
+			damage = 8 + (Dungeon.difficulty - 1);
 		} else if (Dungeon.depth <= 25) {
-			damage = 10;
+			damage = 10 + (Dungeon.difficulty - 1);
 		} else {
-			damage = 10;
+			damage = 10 + (Dungeon.difficulty - 1);
 		}
 		super.execute( hero, action );
 		
@@ -73,7 +73,7 @@ public class MysteryMeat extends Food {
 			} else if ( theswitch == 8 ){
 				theswitch = 5;
 			} else if ( theswitch == 9 ){
-				theswitch = 5;
+				theswitch = 5 - (Dungeon.difficulty + 1 );
 			}
 			
 			switch ( theswitch ) {

@@ -20,6 +20,7 @@ package com.watabou.mofoodpd.windows;
 import com.watabou.mofoodpd.Assets;
 import com.watabou.mofoodpd.PixelDungeon;
 import com.watabou.mofoodpd.scenes.PixelScene;
+import com.watabou.mofoodpd.scenes.StartScene;
 import com.watabou.mofoodpd.ui.CheckBox;
 import com.watabou.mofoodpd.ui.RedButton;
 import com.watabou.mofoodpd.ui.Window;
@@ -42,6 +43,16 @@ public class WndSettings extends Window {
 	
 	private static final String TXT_SWITCH_PORT	= "Switch to portrait";
 	private static final String TXT_SWITCH_LAND	= "Switch to landscape";
+	
+	private static String TXT_NIGHT_DISPLAY			= "Night Mode Default";	
+	private static final String TXT_NIGHT_ON			= "Night Mode On";
+	private static final String TXT_NIGHT_OFF			= "Night Mode Off";
+	private static final String TXT_NIGHT_DEFAULT		= "Night Mode Default";
+	private RedButton btnCycleDownNight;
+	private RedButton btnCycleUpNight;
+	RedButton btnNightDisplay;
+	private static final String TXT_CYCLE_UP			= "+";
+	private static final String TXT_CYCLE_DOWN			= "-";
 	
 	private static final int WIDTH		= 112;
 	private static final int BTN_HEIGHT	= 20;
@@ -122,13 +133,70 @@ public class WndSettings extends Window {
 		
 		if (!inGame) {
 			
+			//begin night mode choice
+			// Zoom out
+			btnCycleDownNight = new RedButton( TXT_CYCLE_DOWN ) {
+				@Override
+				protected void onClick() {
+					if (TXT_NIGHT_DISPLAY == TXT_NIGHT_ON){
+						TXT_NIGHT_DISPLAY = TXT_NIGHT_DEFAULT;
+						btnNightDisplay.text(TXT_NIGHT_DEFAULT);
+						StartScene.manualNightMode = false;
+					} else if (TXT_NIGHT_DISPLAY == TXT_NIGHT_OFF){
+						TXT_NIGHT_DISPLAY  = TXT_NIGHT_ON;
+						btnNightDisplay.text(TXT_NIGHT_ON);
+						StartScene.manualNightMode = true;
+						StartScene.nightModeChoice = true;
+					} else {
+						TXT_NIGHT_DISPLAY = TXT_NIGHT_OFF;
+						btnNightDisplay.text(TXT_NIGHT_OFF);
+						StartScene.manualNightMode = true;
+						StartScene.manualNightMode = false;
+					}
+				}
+			};
+			add( btnCycleDownNight.setRect( 0, btnSound.bottom() + GAP, BTN_HEIGHT, BTN_HEIGHT) );
+			
+			// Zoom in
+			btnCycleUpNight = new RedButton( TXT_CYCLE_UP ) {
+				@Override
+				protected void onClick() {
+					if (TXT_NIGHT_DISPLAY == TXT_NIGHT_ON){
+						TXT_NIGHT_DISPLAY = TXT_NIGHT_OFF;
+						btnNightDisplay.text(TXT_NIGHT_OFF);
+						StartScene.manualNightMode = true;
+						StartScene.nightModeChoice = false;
+					} else if (TXT_NIGHT_DISPLAY == TXT_NIGHT_OFF){
+						TXT_NIGHT_DISPLAY  = TXT_NIGHT_DEFAULT;
+						btnNightDisplay.text(TXT_NIGHT_DEFAULT);
+						StartScene.manualNightMode = false;
+					} else {
+						TXT_NIGHT_DISPLAY = TXT_NIGHT_ON;
+					btnNightDisplay.text(TXT_NIGHT_ON);
+					StartScene.manualNightMode = true;
+					StartScene.nightModeChoice = true;
+					}
+				}
+			};
+			add( btnCycleUpNight.setRect( WIDTH - BTN_HEIGHT, btnSound.bottom() + GAP, BTN_HEIGHT, BTN_HEIGHT) );
+			
+			// Default zoom
+			btnNightDisplay = new RedButton( TXT_NIGHT_DISPLAY ) {
+				@Override
+				protected void onClick() {
+					//Game.switchScene( BadgesScene.class );
+				}
+			};
+			add ( btnNightDisplay.setRect( btnCycleDownNight.right(), btnSound.bottom() + GAP, WIDTH - btnCycleUpNight.width() - btnCycleDownNight.width(), BTN_HEIGHT ) );
+			
+			
 			RedButton btnOrientation = new RedButton( orientationText() ) {
 				@Override
 				protected void onClick() {
 					PixelDungeon.landscape( !PixelDungeon.landscape() );
 				}
 			};
-			btnOrientation.setRect( 0, btnSound.bottom() + GAP, WIDTH, BTN_HEIGHT );
+			btnOrientation.setRect( 0, btnNightDisplay.bottom() + GAP, WIDTH, BTN_HEIGHT );
 			add( btnOrientation );
 			
 			resize( WIDTH, (int)btnOrientation.bottom() );

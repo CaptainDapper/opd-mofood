@@ -23,6 +23,7 @@ import com.watabou.mofoodpd.Dungeon;
 import com.watabou.mofoodpd.scenes.GameScene;
 import com.watabou.mofoodpd.scenes.InterlevelScene;
 import com.watabou.mofoodpd.scenes.RankingsScene;
+import com.watabou.mofoodpd.scenes.StartScene;
 import com.watabou.mofoodpd.scenes.TitleScene;
 import com.watabou.mofoodpd.ui.Icons;
 import com.watabou.mofoodpd.ui.RedButton;
@@ -41,6 +42,7 @@ public class WndGame extends Window {
 	private static final int WIDTH		= 120;
 	private static final int BTN_HEIGHT	= 20;
 	private static final int GAP		= 2;
+	
 	
 	private int pos;
 	
@@ -63,10 +65,23 @@ public class WndGame extends Window {
 			addButton( btnStart = new RedButton( TXT_START ) {
 				@Override
 				protected void onClick() {
-					Dungeon.hero = null;
-					InterlevelScene.mode = InterlevelScene.Mode.DESCEND;
-					InterlevelScene.noStory = true;
-					Game.switchScene( InterlevelScene.class );
+					
+					GameScene.show( new WndDifficulty( ) {
+						@Override
+						protected void onSelect( int index ) {
+							if (index == 0) {
+								if (StartScene.difficulty == 0){
+									StartScene.difficulty = 2;
+								}
+								Dungeon.hero = null;
+								InterlevelScene.mode = InterlevelScene.Mode.DESCEND;
+								InterlevelScene.noStory = true;
+								Game.switchScene( InterlevelScene.class );
+							} else if (index == 1){
+								//do nothing
+							}
+						}	
+				} );
 				}
 			} );
 			btnStart.icon( Icons.get( Dungeon.hero.heroClass ) );

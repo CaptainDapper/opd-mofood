@@ -81,6 +81,26 @@ public class Generator {
 	
 	static {
 		
+		int firebloomChance = 3;
+		int firewandChance = 15;
+		int mendingChance = 1;
+		int satietyChance = 1;
+		
+		if (Dungeon.difficulty == 1){
+			firebloomChance = 3;
+			firewandChance = 15;
+		} else if (Dungeon.difficulty == 2){
+			firewandChance = 15;
+		} else if (Dungeon.difficulty == 3){
+			firebloomChance = 3;
+			firewandChance = 10;
+		} else {
+			firebloomChance = 2;
+			firewandChance = 5;
+			mendingChance = 0;
+			satietyChance = 0;
+		}
+		
 		Category.GOLD.classes = new Class<?>[]{ 
 			Gold.class };
 		Category.GOLD.probs = new float[]{ 1 };
@@ -129,7 +149,7 @@ public class Generator {
 			WandOfMagicMissile.class,
 			WandOfDisintegration.class,
 			WandOfAvalanche.class };
-		Category.WAND.probs = new float[]{ 10, 10, 15, 6, 10, 11, 15, 10, 6, 10, 0, 5, 5 };
+		Category.WAND.probs = new float[]{ 10, 10, firewandChance, 6, 10, 11, 15, 10, 6, 10, 0, 5, 5 };
 		
 		Category.WEAPON.classes = new Class<?>[]{ 
 			Dagger.class, 
@@ -184,7 +204,7 @@ public class Generator {
 			RingOfElements.class,
 			RingOfHaggler.class,
 			RingOfThorns.class };
-		Category.RING.probs = new float[]{ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0 };
+		Category.RING.probs = new float[]{ mendingChance, 1, 1, 1, 1, 1, 1, satietyChance, 1, 1, 0, 0 };
 		
 		Category.SEED.classes = new Class<?>[]{ 
 			Firebloom.Seed.class,
@@ -195,7 +215,7 @@ public class Generator {
 			Earthroot.Seed.class,
 			Fadeleaf.Seed.class,
 			Rotberry.Seed.class };
-		Category.SEED.probs = new float[]{ 3, 2, 2, 2, 2, 2, 2, 0 };
+		Category.SEED.probs = new float[]{ firebloomChance, 2, 2, 2, 2, 2, 2, 0 };
 	}
 	
 	public static void reset() {

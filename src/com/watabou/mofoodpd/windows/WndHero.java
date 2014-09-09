@@ -46,6 +46,9 @@ public class WndHero extends WndTabbed {
 	private static final String TXT_HEALTH	= "Health";
 	private static final String TXT_GOLD	= "Gold Collected";
 	private static final String TXT_DEPTH	= "Maximum Depth";
+	private static final String TXT_MO_FOOD	= "Mo' Food Mod Enabled";
+	private static final String TXT_DIFFICULTY = "Difficulty";
+
 	
 	private static final int WIDTH		= 100;
 	private static final int TAB_WIDTH	= 40;
@@ -55,7 +58,7 @@ public class WndHero extends WndTabbed {
 	
 	private SmartTexture icons;
 	private TextureFilm film;
-	
+		
 	public WndHero() {
 		
 		super();
@@ -101,7 +104,7 @@ public class WndHero extends WndTabbed {
 		private float pos;
 		
 		public StatsTab() {
-			
+
 			Hero hero = Dungeon.hero; 
 
 			BitmapText title = PixelScene.createText( 
@@ -134,6 +137,11 @@ public class WndHero extends WndTabbed {
 			
 			pos = btnCatalogus.bottom() + GAP;
 			
+			statSlot ( TXT_MO_FOOD, "");			
+			statSlot ( TXT_DIFFICULTY, Dungeon.diffToString( Dungeon.difficulty ) );
+			
+			pos+= GAP;
+			
 			statSlot( TXT_STR, hero.STR() );
 			statSlot( TXT_HEALTH, hero.HP + "/" + hero.HT );
 			statSlot( TXT_EXP, hero.exp + "/" + hero.maxExp() );
@@ -141,9 +149,9 @@ public class WndHero extends WndTabbed {
 			pos += GAP;
 			
 			statSlot( TXT_GOLD, Statistics.goldCollected );
-			statSlot( TXT_DEPTH, Statistics.deepestFloor );
+			statSlot( TXT_DEPTH, Statistics.deepestFloor );			
 			
-			pos += GAP;
+			pos+= GAP;
 		}
 		
 		private void statSlot( String label, String value ) {

@@ -153,9 +153,30 @@ public abstract class Level implements Bundlable {
 		plants = new SparseArray<Plant>();
 		
 		if (!Dungeon.bossLevel()) {
+			
 			addItemToSpawn( Generator.random( Generator.Category.FOOD ) );
 			addItemToSpawn( Generator.random( Generator.Category.FOOD ) );
-			addItemToSpawn( Generator.random( Generator.Category.FOOD ) );
+			
+			if (Dungeon.difficulty == 1){
+				addItemToSpawn( Generator.random( Generator.Category.FOOD ) );
+				addItemToSpawn( Generator.random( Generator.Category.FOOD ) );
+				
+			} else if (Dungeon.difficulty == 2){
+				addItemToSpawn( Generator.random( Generator.Category.FOOD ) );
+				if (Random.Float() < 0.5f){
+					addItemToSpawn( Generator.random( Generator.Category.FOOD ) );
+				}
+			} else if (Dungeon.difficulty == 3){
+				addItemToSpawn( Generator.random( Generator.Category.FOOD ) );
+			} else {
+				//
+				}
+			
+			//Easy mode: always 4
+			//Normal mode: 50% chance of 3, 50% chance of 4
+			//Hard mode: always 3
+			//Insane mode: always 2
+			
 			if (Dungeon.posNeeded()) {
 				addItemToSpawn( new PotionOfStrength() );
 				Dungeon.potionOfStrength++;

@@ -36,6 +36,7 @@ import com.watabou.mofoodpd.ui.SimpleButton;
 import com.watabou.mofoodpd.ui.Window;
 import com.watabou.mofoodpd.utils.Utils;
 import com.watabou.mofoodpd.windows.WndList;
+import com.watabou.mofoodpd.windows.WndDifficulty;
 import com.watabou.mofoodpd.windows.WndOptions;
 import com.watabou.mofoodpd.windows.WndTitledMessage;
 import com.watabou.noosa.BitmapText;
@@ -70,8 +71,9 @@ public class StartScene extends PixelScene {
 	private static final String TXT_NO		= "No, return to main menu";
 	
 	private static final String TXT_UNLOCK	= "To unlock this character class, slay the 3rd boss with any other class";
+
 	
-	private float width;
+	float width;
 	private float height;
 	private float top;
 	private float left;
@@ -89,6 +91,10 @@ public class StartScene extends PixelScene {
 	
 	private boolean huntressUnlocked;
 	private Group unlock;
+	
+	public static int difficulty;
+	public static boolean manualNightMode;
+	public static boolean nightModeChoice;
 	
 	public static HeroClass curClass;
 	
@@ -152,13 +158,40 @@ public class StartScene extends PixelScene {
 						@Override
 						protected void onSelect( int index ) {
 							if (index == 0) {
-								startNewGame();
+								//startNewGame();
+								StartScene.this.add( new WndDifficulty( ) {
+									@Override
+									protected void onSelect( int index ) {
+										if (index == 0) {
+											if (StartScene.difficulty == 0){
+												StartScene.difficulty = 2;
+											}
+											startNewGame();
+										} else if (index == 1){
+											//do nothing
+										}
+									}
+									
+								} );
 							}
 						}
 					} );
 					
 				} else {
-					startNewGame();
+					StartScene.this.add( new WndDifficulty( ) {
+						@Override
+						protected void onSelect( int index ) {
+							if (index == 0) {
+								if (StartScene.difficulty == 0){
+									StartScene.difficulty = 2;
+								}
+								startNewGame();
+							} else if (index == 1){
+								//do nothing
+							}
+						}
+						
+					} );
 				}
 			}
 		};
@@ -339,15 +372,17 @@ public class StartScene extends PixelScene {
 	
 	private void startNewGame() {
 
-		Dungeon.hero = null;
-		InterlevelScene.mode = InterlevelScene.Mode.DESCEND;
+			Dungeon.hero = null;
+			InterlevelScene.mode = InterlevelScene.Mode.DESCEND;
+			
+			if (PixelDungeon.intro()) {
+				PixelDungeon.intro( false );
+				Game.switchScene( IntroScene.class );
+			} else {
+				Game.switchScene( InterlevelScene.class );
+			}	
 		
-		if (PixelDungeon.intro()) {
-			PixelDungeon.intro( false );
-			Game.switchScene( IntroScene.class );
-		} else {
-			Game.switchScene( InterlevelScene.class );
-		}	
+
 	}
 	
 	@Override

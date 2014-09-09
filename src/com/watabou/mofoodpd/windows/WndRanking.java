@@ -157,11 +157,12 @@ public class WndRanking extends WndTabbed {
 		private static final String TXT_ANKHS	= "Ankhs Used";
 		
 		private static final String TXT_MOFOOD	= "Mo' Food Mod Enabled";
-
+		private static final String TXT_DIFFICULTY = "Difficulty";
+		
 		
 		public StatsTab() {
 			super();
-			
+
 			String heroClass = Dungeon.hero.className();
 			
 			IconTitle title = new IconTitle();
@@ -172,8 +173,9 @@ public class WndRanking extends WndTabbed {
 			
 			float pos = title.bottom() + GAP + GAP;
 			
-			pos = statSlot( this, TXT_MOFOOD, "Yes", pos );
-			
+			pos = statSlot( this, TXT_MOFOOD, "", pos );
+			pos = statSlot( this, TXT_DIFFICULTY, Dungeon.diffToString( Dungeon.difficulty ), pos );
+
 			pos += GAP;
 			
 			pos = statSlot( this, TXT_STR, Integer.toString( Dungeon.hero.STR ), pos );
