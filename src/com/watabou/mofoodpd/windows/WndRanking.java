@@ -19,6 +19,7 @@ package com.watabou.mofoodpd.windows;
 
 import java.util.Locale;
 
+import com.opd.noosa.OPDScene;
 import com.watabou.mofoodpd.Assets;
 import com.watabou.mofoodpd.Badges;
 import com.watabou.mofoodpd.Dungeon;
@@ -162,6 +163,8 @@ public class WndRanking extends WndTabbed {
 		
 		public StatsTab() {
 			super();
+			
+			OPDScene.displayVersion(this, WIDTH, 0);
 
 			String heroClass = Dungeon.hero.className();
 			
@@ -222,6 +225,8 @@ public class WndRanking extends WndTabbed {
 		public ItemsTab() {
 			super();
 			
+			OPDScene.displayVersion(this, WIDTH, 0);
+			
 			Belongings stuff = Dungeon.hero.belongings;
 			if (stuff.weapon != null) {
 				addItem( stuff.weapon );
@@ -262,6 +267,8 @@ public class WndRanking extends WndTabbed {
 		
 		public BadgesTab() {
 			super();
+			
+			OPDScene.displayVersion(this, WIDTH, 0);
 			
 			camera = WndRanking.this.camera;
 			
