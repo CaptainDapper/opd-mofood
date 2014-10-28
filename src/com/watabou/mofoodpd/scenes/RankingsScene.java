@@ -109,6 +109,8 @@ public class RankingsScene extends PixelScene {
 			add( title );
 			
 		}
+
+		displayVersion(w,h);
 		
 		fadeIn();
 	}
