@@ -43,6 +43,10 @@ List of v1.1.3 changes:
 4. Fire elementals now dropped Chargrilled Meat.
 5. Mo' Food Mod name added in various places.
 
+List of v1.1.4a changes:
+
+1. New icon!
+
 This mod makes the game much harder, especially in the beginning. You have been warned.
 
 This mod should install as a separate application and will not hurt any of your current
