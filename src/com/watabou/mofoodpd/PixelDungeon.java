@@ -20,6 +20,45 @@ package com.watabou.mofoodpd;
 import com.opd.noosa.OPDGame;
 import com.watabou.mofoodpd.scenes.TitleScene;
 
+/*Info on Difficulty
+
+Easy Mode - PD without the changes
+Regeneration at 8
+Increased firebloom
+Firebolt at normal amount
+No stomachache damage
+Slightly higher chance of no effect
+Starving always 1, slightly less chance of starving
+4 food per level
+
+Normal Mode - PD with some changes
+Regeneration at 9
+Increased fire bloom
+Normal firebolt amount
+Stomachache damages 1
+Slightly higher chance of stomachache
+Starving always 1
+50% chance of 3 food, 50% chance of 4 food per level
+
+Hard Mode - Current MFM
+Regeneration at 10
+Wand of firebolt reduced to 10
+Stomach damages 2
+Slightly higher chance of stuffed
+Starving hurts by depth
+3 food per level
+
+Insane Mode - Impossible
+Regeneration at 11
+Firebloom doesn’t appear more often
+Wand of firebolt reduced to 5
+Stomachache damages 3
+Slightly higher chance of poison 
+Starving hurts by depth + 1
+2 food per level
+Ring of Satiety and Ring of Mending do not appear
+*/
+
 public class PixelDungeon extends OPDGame {
 
 	public PixelDungeon() {
