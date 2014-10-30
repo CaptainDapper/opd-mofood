@@ -20,7 +20,5 @@ package com.watabou.mofoodpd;
 import com.opd.openpixeldungeon.DefaultAssets;
 
 public class Assets extends DefaultAssets{
-	public static final String BANNERS = "mofood/banners.png";
-	public static final String ICONS = "mofood/icons.png";
 	public static final String ITEMS = "mofood/items.png";
 }
