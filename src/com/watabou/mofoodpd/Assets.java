@@ -17,7 +17,7 @@
  */
 package com.watabou.mofoodpd;
 
-import com.opd.openpixeldungeon.DefaultAssets;
+import com.opd.opdlib.DefaultAssets;
 
 public class Assets extends DefaultAssets{
 	public static final String ITEMS = "mofood/items.png";

@@ -17,7 +17,7 @@
  */
 package com.watabou.mofoodpd;
 
-import com.opd.noosa.OPDGame;
+import com.opd.opdlib.OPDGame;
 import com.watabou.mofoodpd.scenes.TitleScene;
 
 /*Info on Difficulty

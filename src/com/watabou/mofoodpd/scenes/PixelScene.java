@@ -21,7 +21,7 @@ import javax.microedition.khronos.opengles.GL10;
 
 import android.opengl.GLES20;
 
-import com.opd.noosa.OPDScene;
+import com.opd.opdlib.OPDScene;
 import com.watabou.input.Touchscreen;
 import com.watabou.mofoodpd.Assets;
 import com.watabou.mofoodpd.Badges;

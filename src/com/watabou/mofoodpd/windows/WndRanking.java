@@ -19,7 +19,7 @@ package com.watabou.mofoodpd.windows;
 
 import java.util.Locale;
 
-import com.opd.noosa.OPDScene;
+import com.opd.opdlib.OPDScene;
 import com.watabou.mofoodpd.Assets;
 import com.watabou.mofoodpd.Badges;
 import com.watabou.mofoodpd.Dungeon;

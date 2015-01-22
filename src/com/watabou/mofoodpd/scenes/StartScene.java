@@ -146,6 +146,8 @@ public class StartScene extends PixelScene {
 			p += btn.width() + space / 3;
 		}
 		
+		pos = btns[0].bottom();
+		
 		
 		frame = Chrome.get( Chrome.Type.TOAST_TR );
 		add( frame );
