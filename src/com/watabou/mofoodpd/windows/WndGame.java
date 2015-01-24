@@ -19,6 +19,7 @@ package com.watabou.mofoodpd.windows;
 
 import java.io.IOException;
 
+import com.opd.opdlib.OPDGame;
 import com.watabou.mofoodpd.Dungeon;
 import com.watabou.mofoodpd.scenes.GameScene;
 import com.watabou.mofoodpd.scenes.InterlevelScene;
@@ -112,7 +113,12 @@ public class WndGame extends Window {
 		addButton( new RedButton( TXT_EXIT ) {
 			@Override
 			protected void onClick() {
-				Game.instance.finish();
+				try {
+					Dungeon.saveAll();
+				} catch (IOException e) {
+					//
+				}
+				OPDGame.quitSubGame();
 			}
 		} );
 		
